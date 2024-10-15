@@ -1,5 +1,6 @@
 namespace F1.Models;
 
+// Classe modelo das equipes
 public class Equipe
 {
     public int id { get; set; }

@@ -1,5 +1,6 @@
 namespace F1.Models;
 
+// Classe modelo dos pilotos
 public class Piloto
 {
     public int id { get; set; }

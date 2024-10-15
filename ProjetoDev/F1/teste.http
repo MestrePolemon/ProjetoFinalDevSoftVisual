@@ -1,0 +1,26 @@
+### Teste raiz da API
+GET http://localhost:5256
+
+### Cadastrar equipes
+POST http://localhost:5256/F1/equipes/cadastrar
+
+### Cadastrar pilotos
+POST http://localhost:5256/F1/pilotos/cadastrar
+
+### Listar equipes
+GET http://localhost:5256/F1/equipes/listar
+
+### Listar pilotos
+GET http://localhost:5256/F1/pilotos/listar
+
+### Buscar equipe pelo nome
+GET http://localhost:5256/F1/equipes/buscar/Scuderia%20Ferrari
+
+### Buscar piloto pelo nome
+GET http://localhost:5256/F1/pilotos/buscar/Sebastian%20Vettel
+
+### Alterar equipe pelo nome
+PUT http://localhost:5256/F1/equipes/alterar/Scuderia%20Ferrari
+
+### Alterar piloto pelo nome
+PUT http://localhost:5256/F1/pilotos/alterar/Sebastian%20Vettel
