@@ -14,7 +14,7 @@ app.MapGet("/", () => "Bem vindo ao F1!");
 app.MapPost("/F1/equipes/cadastrar", ([FromBody] Equipe equipe,
     [FromServices] AppDbContext ctx) =>
 {
-    if (ctx.Equipes.Count() < 2)
+    if (ctx.Equipes.Count() < 12)
     {
         ctx.Equipes.Add(equipe);
         ctx.SaveChanges();
