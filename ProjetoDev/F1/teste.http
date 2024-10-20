@@ -3,24 +3,62 @@ GET http://localhost:5256
 
 ### Cadastrar equipes
 POST http://localhost:5256/F1/equipes/cadastrar
+Content-Type: application/json
+
+{
+    "nome" : "RedBull",
+    "paisOrigem" : "Australia",
+    "dataFundacao":    "2004-07-13"
+
+}
 
 ### Cadastrar pilotos
 POST http://localhost:5256/F1/pilotos/cadastrar
+Content-Type: application/json
 
+{
+    "nome" :"Verstappen",
+    "nacionalidade" : "Holandês",
+    "equipeId" : 1
+
+}
 ### Listar equipes
-GET http://localhost:5256/F1/equipes/listar
+GET http://localhost:5256/F1/equipe/listar
 
 ### Listar pilotos
 GET http://localhost:5256/F1/pilotos/listar
 
 ### Buscar equipe pelo nome
-GET http://localhost:5256/F1/equipes/buscar/Scuderia%20Ferrari
+GET http://localhost:5256/F1/equipe/buscar/RedBull
 
 ### Buscar piloto pelo nome
-GET http://localhost:5256/F1/pilotos/buscar/Sebastian%20Vettel
+GET http://localhost:5256/F1/piloto/buscar/Verstappen
 
 ### Alterar equipe pelo nome
-PUT http://localhost:5256/F1/equipes/alterar/Scuderia%20Ferrari
+PUT http://localhost:5256/F1/equipe/alterar/RedBull
+Content-Type: application/json
+
+{
+    "nome" : "Red Bull",
+    "paisOrigem" : "Australia",
+    "dataFundacao":    "2004-06-18"
+
+}
 
 ### Alterar piloto pelo nome
-PUT http://localhost:5256/F1/pilotos/alterar/Sebastian%20Vettel
+PUT http://localhost:5256/F1/piloto/alterar/Verstappen
+Content-Type: application/json
+
+{
+
+    "nome" :"Verstappen",
+    "nacionalidade" : "Holandes",
+    "equipeId" : 1
+
+}
+
+### deletar equipe pelo nome
+DELETE http://localhost:5256/F1/equipe/deletar/Red%20Bull
+
+### deletar piloto pelo nome
+DELETE http://localhost:5256/F1/piloto/deletar/Verstappen

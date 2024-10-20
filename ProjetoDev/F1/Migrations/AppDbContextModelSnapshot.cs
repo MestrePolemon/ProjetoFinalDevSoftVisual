@@ -49,7 +49,7 @@ namespace F1.Migrations
                     b.Property<DateTime>("criadoEm")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("equipeId")
+                    b.Property<int?>("equipeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("nacionalidade")
@@ -68,17 +68,10 @@ namespace F1.Migrations
             modelBuilder.Entity("F1.Models.Piloto", b =>
                 {
                     b.HasOne("F1.Models.Equipe", "equipe")
-                        .WithMany("pilotos")
-                        .HasForeignKey("equipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .WithMany()
+                        .HasForeignKey("equipeId");
 
                     b.Navigation("equipe");
-                });
-
-            modelBuilder.Entity("F1.Models.Equipe", b =>
-                {
-                    b.Navigation("pilotos");
                 });
 #pragma warning restore 612, 618
         }
