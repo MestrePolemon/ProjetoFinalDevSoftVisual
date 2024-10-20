@@ -14,7 +14,7 @@ app.MapGet("/", () => "Bem vindo ao F1!");
 app.MapPost("/F1/equipes/cadastrar", ([FromBody] Equipe equipe,
     [FromServices] AppDbContext ctx) =>
 {
-    if (ctx.Equipes.Count() <= 12)
+    if (ctx.Equipes.Count() < 2)
     {
         ctx.Equipes.Add(equipe);
         ctx.SaveChanges();
@@ -43,7 +43,7 @@ app.MapPost("/F1/pilotos/cadastrar", ([FromBody] Piloto piloto,
 });
 
 // Listagem de equipes e pilotos
-app.MapGet("/F1/equipe/listar", ([FromServices] AppDbContext ctx) =>
+app.MapGet("/F1/equipes/listar", ([FromServices] AppDbContext ctx) =>
 {
 
     if (ctx.Equipes.Any())
@@ -65,7 +65,7 @@ app.MapGet("/F1/pilotos/listar", ([FromServices] AppDbContext ctx) =>
 });
 
 // Busca de equipes e pilotos
-app.MapGet("/F1/equipe/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
+app.MapGet("/F1/equipes/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
     Equipe? equipe = ctx.Equipes.FirstOrDefault(e => e.nome.Contains(nome));
     if (equipe is null)
@@ -75,7 +75,7 @@ app.MapGet("/F1/equipe/buscar/{nome}", ([FromRoute] string nome, [FromServices] 
     return Results.Ok(equipe);
 });
 
-app.MapGet("/F1/piloto/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
+app.MapGet("/F1/pilotos/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
     Piloto? piloto = ctx.Pilotos
         .Include(p => p.equipe)
@@ -88,7 +88,7 @@ app.MapGet("/F1/piloto/buscar/{nome}", ([FromRoute] string nome, [FromServices] 
 });
 
 // Alteração de equipes e pilotos
-app.MapPut("/F1/equipe/alterar/{nome}", ([FromRoute] string nome, [FromBody] Equipe equipeAlterada,
+app.MapPut("/F1/equipes/alterar/{nome}", ([FromRoute] string nome, [FromBody] Equipe equipeAlterada,
     [FromServices] AppDbContext ctx) =>
 {
     Equipe? equipe = ctx.Equipes.FirstOrDefault(e => e.nome.Contains(nome));
@@ -104,7 +104,7 @@ app.MapPut("/F1/equipe/alterar/{nome}", ([FromRoute] string nome, [FromBody] Equ
     return Results.Ok(equipe);
 });
 
-app.MapPut("/F1/piloto/alterar/{nome}", ([FromRoute] string nome, [FromBody] Piloto pilotoAlterado,
+app.MapPut("/F1/pilotos/alterar/{nome}", ([FromRoute] string nome, [FromBody] Piloto pilotoAlterado,
     [FromServices] AppDbContext ctx) =>
 {
     Piloto? piloto= ctx.Pilotos.FirstOrDefault(p => p.nome.Contains(nome));
@@ -124,9 +124,9 @@ app.MapPut("/F1/piloto/alterar/{nome}", ([FromRoute] string nome, [FromBody] Pil
 });
 
 // Deletar equipes e pilotos
-app.MapDelete("/F1/equipe/deletar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
+app.MapDelete("/F1/equipes/deletar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
-    Equipe? equipe = ctx.Equipes.FirstOrDefault(e => e.nome.Contains(nome));
+    Equipe? equipe = ctx.Equipes.FirstOrDefault(e => e.nome.ToLower().Trim() == nome.ToLower().Trim());
     if (equipe is null)
     {
         return Results.NotFound("Equipe não encontrada");
@@ -136,11 +136,11 @@ app.MapDelete("/F1/equipe/deletar/{nome}", ([FromRoute] string nome, [FromServic
     return Results.Ok(equipe);
 });
 
-app.MapDelete("/F1/piloto/deletar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
+app.MapDelete("/F1/pilotos/deletar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
     Piloto? piloto = ctx.Pilotos
         .Include(p => p.equipe)
-        .FirstOrDefault(p => p.nome.Contains(nome));
+        .FirstOrDefault(p => p.nome.ToLower().Trim() == nome.ToLower().Trim());
     if (piloto is null)
     {
         return Results.NotFound("Piloto não encontrado");

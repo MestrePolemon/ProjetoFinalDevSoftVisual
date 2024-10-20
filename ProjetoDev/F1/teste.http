@@ -1,19 +1,40 @@
+@base_url = http://localhost:5256/F1
+
 ### Teste raiz da API
 GET http://localhost:5256
 
 ### Cadastrar equipes
-POST http://localhost:5256/F1/equipes/cadastrar
+POST {{base_url}}/equipes/cadastrar
 Content-Type: application/json
 
 {
     "nome" : "RedBull",
     "paisOrigem" : "Australia",
-    "dataFundacao":    "2004-07-13"
+    "dataFundacao":    "2004-06-18"
 
 }
+###
+POST {{base_url}}/equipes/cadastrar
+Content-Type: application/json
 
+{
+    "nome" : "Ferrari",
+    "paisOrigem" : "Italia",
+    "dataFundacao":    "1929-09-13"
+
+}
+###
+POST {{base_url}}/equipes/cadastrar
+Content-Type: application/json
+
+{
+  "nome" : "Mercedes",
+  "paisOrigem" : "Alemanha",
+  "dataFundacao":    "2010-11-16"
+
+}
 ### Cadastrar pilotos
-POST http://localhost:5256/F1/pilotos/cadastrar
+POST {{base_url}}/pilotos/cadastrar
 Content-Type: application/json
 
 {
@@ -22,43 +43,63 @@ Content-Type: application/json
     "equipeId" : 1
 
 }
-### Listar equipes
-GET http://localhost:5256/F1/equipe/listar
-
-### Listar pilotos
-GET http://localhost:5256/F1/pilotos/listar
-
-### Buscar equipe pelo nome
-GET http://localhost:5256/F1/equipe/buscar/RedBull
-
-### Buscar piloto pelo nome
-GET http://localhost:5256/F1/piloto/buscar/Verstappen
-
-### Alterar equipe pelo nome
-PUT http://localhost:5256/F1/equipe/alterar/RedBull
+###
+POST {{base_url}}/pilotos/cadastrar
 Content-Type: application/json
 
 {
-    "nome" : "Red Bull",
-    "paisOrigem" : "Australia",
-    "dataFundacao":    "2004-06-18"
+    "nome" :"Hamilton",
+    "nacionalidade" : "Britânico",
+    "equipeId" : 1
+
+}
+###
+POST {{base_url}}/pilotos/cadastrar
+Content-Type: application/json
+
+{
+    "nome" :"Leclerc",
+    "nacionalidade" : "Monegasco",
+    "equipeId" : 2
+
+}
+### Listar equipes
+GET {{base_url}}/equipes/listar
+
+### Listar pilotos
+GET {{base_url}}/pilotos/listar
+
+### Buscar equipe pelo nome
+GET {{base_url}}/equipes/buscar/RedBull
+
+### Buscar piloto pelo nome
+GET {{base_url}}/pilotos/buscar/Verstappen
+
+### Alterar equipe pelo nome
+PUT {{base_url}}/equipes/alterar/Ferrari
+Content-Type: application/json
+
+{
+    "nome" : "Scuderia Ferrari",
+    "paisOrigem" : "Italia",
+    "dataFundacao":    "1929-09-13"
 
 }
 
 ### Alterar piloto pelo nome
-PUT http://localhost:5256/F1/piloto/alterar/Verstappen
+PUT {{base_url}}/pilotos/alterar/Verstappen
 Content-Type: application/json
 
 {
 
     "nome" :"Verstappen",
     "nacionalidade" : "Holandes",
-    "equipeId" : 1
+    "equipeId" : 2
 
 }
 
 ### deletar equipe pelo nome
-DELETE http://localhost:5256/F1/equipe/deletar/Red%20Bull
+DELETE {{base_url}}/equipes/deletar/RedBull
 
 ### deletar piloto pelo nome
-DELETE http://localhost:5256/F1/piloto/deletar/Verstappen
+DELETE {{base_url}}/pilotos/deletar/Verstappen
