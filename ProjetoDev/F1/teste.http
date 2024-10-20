@@ -102,4 +102,4 @@ Content-Type: application/json
 DELETE {{base_url}}/equipes/deletar/RedBull
 
 ### deletar piloto pelo nome
-DELETE {{base_url}}/pilotos/deletar/Verstappen
+DELETE {{base_url}}/pilotos/deletar/Hamilton
