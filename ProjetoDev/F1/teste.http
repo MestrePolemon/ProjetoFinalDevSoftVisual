@@ -50,7 +50,7 @@ Content-Type: application/json
 {
     "nome" :"Hamilton",
     "nacionalidade" : "Britânico",
-    "equipeId" : 1
+    "equipeId" : 1  
 
 }
 ###
