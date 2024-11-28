@@ -5,6 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 var app = builder.Build();
 
 // Página Inicial
@@ -356,5 +365,6 @@ app.MapDelete("/F1/torneios/deletar/{ano}", ([FromRoute] string ano, [FromServic
     return Results.Ok(torneio);
 });
 
+app.UseCors("AllowAll");
 
 app.Run();
