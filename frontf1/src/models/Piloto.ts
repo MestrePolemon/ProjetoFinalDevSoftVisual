@@ -2,8 +2,8 @@
 
 export interface Piloto{
     id: number;
-    nome: String;
-    nacionalidade: String;
+    nome: string;
+    nacionalidade: string;
     equipe?: Equipe
     equipeId: number;
 }
