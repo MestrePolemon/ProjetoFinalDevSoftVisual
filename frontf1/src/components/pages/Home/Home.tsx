@@ -1,34 +1,50 @@
 import React, { useState, useEffect } from "react";
-import "./home.css";
+import './home.css';
+
+interface Piloto {
+    id: number;
+    nome: string;
+}
+
+interface Corrida {
+    id: number;
+    nome: string;
+}
+
+interface Posicao {
+    corrida: string;
+    posicao: number;
+}
 
 function Home() {
-    const [pilotos, setPilotos] = useState([]);
-    const [pilotoSelecionado, setPilotoSelecionado] = useState(null);
-    const [corridas, setCorridas] = useState([]);
-    const [posicoes, setPosicoes] = useState([]);
-    const [corridaAtual, setCorridaAtual] = useState(0);
+    const [pilotos, setPilotos] = useState<Piloto[]>([]);
+    const [pilotoSelecionado, setPilotoSelecionado] = useState<number | null>(null);
+    const [corridas, setCorridas] = useState<Corrida[]>([]);
+    const [posicoes, setPosicoes] = useState<Posicao[]>([]);
+    const [corridaAtual, setCorridaAtual] = useState<number>(0);
 
-    // Carregar pilotos e corridas ao carregar a página
     useEffect(() => {
         // Carregar pilotos
         fetch('http://localhost:5256/F1/pilotos/listar')
             .then(response => response.json())
-            .then(data => setPilotos(data))
+            .then((data: Piloto[]) => setPilotos(data))
             .catch(error => console.error(error));
 
         // Carregar corridas
         fetch('http://localhost:5256/F1/corridas/listar')
             .then(response => response.json())
-            .then(data => setCorridas(data))
+            .then((data: Corrida[]) => setCorridas(data))
             .catch(error => console.error(error));
     }, []);
 
-    // Função para sortear a posição do piloto na corrida
     function sortearPosicao() {
         if (corridaAtual < corridas.length) {
-            const posicao = Math.floor(Math.random() * 20) + 1; // Sorteia entre 1 e 20
-            setPosicoes(prevPosicoes => [...prevPosicoes, { corrida: corridas[corridaAtual].nome, posicao }]);
-            setCorridaAtual(prevCorrida => prevCorrida + 1);
+            const posicao = Math.floor(Math.random() * 20) + 1;
+            setPosicoes((prevPosicoes) => [
+                ...prevPosicoes,
+                { corrida: corridas[corridaAtual].nome, posicao },
+            ]);
+            setCorridaAtual((prevCorrida) => prevCorrida + 1);
         }
     }
 
@@ -36,13 +52,17 @@ function Home() {
         <div>
             <h1>Simulação de Corridas</h1>
 
-            {/* Seleção do Piloto */}
             <div>
                 <h3>Escolha seu piloto:</h3>
-                <select onChange={e => setPilotoSelecionado(e.target.value)} value={pilotoSelecionado}>
-                    <option value={null}>Selecione um piloto</option>
-                    {pilotos.map(piloto => (
-                        <option key={piloto.id} value={piloto.id}>{piloto.nome}</option>
+                <select
+                    onChange={(e) => setPilotoSelecionado(Number(e.target.value))}
+                    value={pilotoSelecionado || ""}
+                >
+                    <option value="">Selecione um piloto</option>
+                    {pilotos.map((piloto) => (
+                        <option key={piloto.id} value={piloto.id}>
+                            {piloto.nome}
+                        </option>
                     ))}
                 </select>
             </div>
@@ -54,7 +74,6 @@ function Home() {
                 </div>
             ) : null}
 
-            {/* Mostrar as posições ao final das corridas */}
             {corridaAtual >= corridas.length && posicoes.length > 0 && (
                 <div>
                     <h3>Resultado das Corridas</h3>

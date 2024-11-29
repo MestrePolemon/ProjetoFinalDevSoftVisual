@@ -1,7 +1,7 @@
 // src/App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/pages/Home/Home";  
+import Home from "./components/pages/Home/Home"; 
 import CadastrarPiloto from "./components/pages/piloto/cadastrarPiloto";
 import ListarPiloto from "./components/pages/piloto/listarPiloto";
 import CadastrarEquipe from "./components/pages/equipe/CadastrarEquipe";
