@@ -1,13 +1,12 @@
-﻿import React, {useState} from "react";
-import {Equipe} from "../../../models/Equipe";
+﻿import React, { useState } from 'react';
 
-function CadastrarEquipe(){
-    const [nome, setNome] = useState("");
-    const [paisOrigem, setPaisOrigem] = useState("");
-    const [dataFundacao, setDataFundacao] = useState("");
-    const [mensagem, setMensagem] = useState("");
-    
-    function enviarEquipe(e: any){
+function CadastrarEquipe() {
+    const [nome, setNome] = useState('');
+    const [paisOrigem, setPaisOrigem] = useState('');
+    const [dataFundacao, setDataFundacao] = useState('');
+    const [mensagem, setMensagem] = useState('');
+
+    function enviarEquipe(e: any) {
         e.preventDefault();
         const equipe = {
             nome: nome,
@@ -31,8 +30,8 @@ function CadastrarEquipe(){
                 setMensagem("Erro ao cadastrar equipe.");
             });
     }
-    
-    return(
+
+    return (
         <div>
             <h1>Cadastrar Equipe</h1>
             <form onSubmit={enviarEquipe}>
@@ -46,7 +45,7 @@ function CadastrarEquipe(){
                 </div>
                 <div>
                     <label>Data de Fundação:</label>
-                    <input type="text" value={dataFundacao} required onChange={e => setDataFundacao(e.target.value)} />
+                    <input type="date" value={dataFundacao} required onChange={e => setDataFundacao(e.target.value)} />
                 </div>
                 <button type="submit">Cadastrar</button>
             </form>

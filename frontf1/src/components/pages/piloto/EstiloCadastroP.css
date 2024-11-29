@@ -1,0 +1,78 @@
+/* Estilo para o formulário */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--white);
+    border: 2px solid var(--ferrari-red);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    color: var(--ferrari-red);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo das labels */
+form label {
+    display: block;
+    font-weight: bold;
+    color: var(--ferrari-black);
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+/* Estilo dos inputs e selects */
+form input,
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: var(--gray);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Foco nos inputs e selects */
+form input:focus,
+form select:focus {
+    outline: none;
+    border: 1px solid var(--ferrari-red);
+    background-color: var(--white);
+}
+
+/* Botão estilizado */
+form button {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+form button:hover {
+    background-color: var(--ferrari-yellow);
+    color: var(--ferrari-black);
+    transform: scale(1.05);
+}
+
+/* Mensagem de sucesso ou erro */
+p {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+

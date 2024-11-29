@@ -23,13 +23,12 @@ app.MapGet("/", () => "Bem vindo ao F1!");
 app.MapPost("/F1/equipes/cadastrar", ([FromBody] Equipe equipe,
     [FromServices] AppDbContext ctx) =>
 {
-    if (ctx.Equipes.Count() < 2)
-    {
-        ctx.Equipes.Add(equipe);
-        ctx.SaveChanges();
-        return Results.Created("", equipe);
-    }
-    return Results.BadRequest("O limite de equipes foi atingido!");
+
+
+            ctx.Equipes.Add(equipe);
+            ctx.SaveChanges();
+            return Results.Created("", equipe);
+            
 });
 
 app.MapPost("/F1/pilotos/cadastrar", ([FromBody] Piloto piloto, 

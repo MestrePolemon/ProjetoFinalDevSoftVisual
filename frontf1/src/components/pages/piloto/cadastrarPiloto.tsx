@@ -1,4 +1,5 @@
 ﻿import React, { useState, useEffect } from "react";
+import './EstiloCadastroP.css';
 
 function CadastrarPiloto() {
     const [nome, setNome] = useState("");

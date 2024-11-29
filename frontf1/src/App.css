@@ -1,0 +1,140 @@
+/* App.css */
+
+/* Paleta de cores inspirada na Ferrari */
+:root {
+    --ferrari-red: #dc0000;
+    --ferrari-black: #1d1d1b;
+    --ferrari-yellow: #ffcc00;
+    --white: #ffffff;
+    --gray: #f4f4f4;
+}
+
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--gray);
+    color: var(--ferrari-black);
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilo do menu de navegação */
+nav {
+    background-color: var(--ferrari-black);
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Efeito de subir nos ícones do menu */
+nav ul li a:hover {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Links ativos */
+nav ul li a.active {
+    background-color: var(--ferrari-yellow);
+    color: var(--ferrari-black);
+    border-radius: 5px;
+}
+
+/* Estilo para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    text-align: left;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border: 1px solid var(--gray);
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--gray);
+}
+
+table tbody tr:hover {
+    background-color: var(--ferrari-yellow);
+    color: var(--ferrari-black);
+    cursor: pointer;
+}
+
+/* Botões estilizados */
+button {
+    background-color: var(--ferrari-red);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--ferrari-yellow);
+    color: var(--ferrari-black);
+    transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+    }
+}
