@@ -24,11 +24,12 @@ app.MapPost("/F1/equipes/cadastrar", ([FromBody] Equipe equipe,
     [FromServices] AppDbContext ctx) =>
 {
 
-
+    
             ctx.Equipes.Add(equipe);
             ctx.SaveChanges();
             return Results.Created("", equipe);
-            
+        
+        
 });
 
 app.MapPost("/F1/pilotos/cadastrar", ([FromBody] Piloto piloto, 
