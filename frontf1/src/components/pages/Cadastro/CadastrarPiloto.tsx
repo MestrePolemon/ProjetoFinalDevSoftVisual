@@ -1,5 +1,5 @@
 ﻿import React, { useState, useEffect } from "react";
-import '../piloto/EstiloCadastroP.css';
+import '../EstiloCadastro/EstiloCadastro.css';
 import { Equipe } from "../../../models/Equipe";
 
 function CadastrarPiloto() {

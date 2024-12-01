@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Piloto } from "../../../models/Piloto";
-{/*import './EstiloDeletarP.css';*/}
 
 function DeletarPiloto() {
     const { nome } = useParams<{ nome: string }>();
@@ -11,9 +10,14 @@ function DeletarPiloto() {
 
     useEffect(() => {
         fetch(`http://localhost:5256/F1/pilotos/buscar/${nome}`)
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Erro ao buscar piloto");
+                }
+                return response.json();
+            })
             .then(data => setPiloto(data))
-            .catch(error => console.error(error));
+            .catch(error => setMensagem(error.message));
     }, [nome]);
 
     const deletarPiloto = () => {
@@ -21,7 +25,9 @@ function DeletarPiloto() {
             method: "DELETE",
         })
             .then(response => {
-                if (!response.ok) throw new Error("Erro ao deletar piloto");
+                if (!response.ok) {
+                    throw new Error("Erro ao deletar piloto");
+                }
                 return response.json();
             })
             .then(() => {
@@ -44,8 +50,10 @@ function DeletarPiloto() {
                 <p><strong>Nacionalidade:</strong> {piloto.nacionalidade}</p>
                 <p><strong>Equipe:</strong> {piloto.equipe?.nome}</p>
             </div>
-            <button onClick={deletarPiloto}>Sim</button>
-            <button onClick={() => navigate(-1)}>Não</button>
+            <div className="button-container">
+                <button onClick={deletarPiloto}>Sim</button>
+                <button onClick={() => navigate(-1)}>Não</button>
+            </div>
             {mensagem && <p>{mensagem}</p>}
         </div>
     );

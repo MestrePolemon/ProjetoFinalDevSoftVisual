@@ -75,4 +75,10 @@ p {
     border-radius: 5px;
     margin-top: 20px;
 }
+/* Centraliza o botão */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
 

@@ -3,9 +3,6 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Home from "./components/pages/Home/Home";
 import Cadastro from "./components/pages/Cadastro/Cadastro";
 import Listagem from "./components/pages/Listar/Listar";
-import Alteracao from "./components/pages/Alterar/Alterar";
-
-import Delecao from "./components/pages/Deletar/Deletar";
 import ListarPiloto from "./components/pages/Listar/ListarPiloto";
 import ListarEquipe from "./components/pages/Listar/ListarEquipe";
 import ListarCorrida from "./components/pages/Listar/ListarCorrida";

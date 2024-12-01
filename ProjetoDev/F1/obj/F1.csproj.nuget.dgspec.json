@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {}
+    "C:\\Users\\Windows 11\\DevSoft\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {
+    "C:\\Users\\Windows 11\\DevSoft\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
+        "projectUniqueName": "C:\\Users\\Windows 11\\DevSoft\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
         "projectName": "F1",
-        "projectPath": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
-        "packagesPath": "C:\\Users\\YujiKiyota\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\obj\\",
+        "projectPath": "C:\\Users\\Windows 11\\DevSoft\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
+        "packagesPath": "C:\\Users\\Windows 11\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Windows 11\\DevSoft\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\YujiKiyota\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Windows 11\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
