@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/luizsimm/Documents/GitHub/ProjetoFinalDevSoftVisual/ProjetoDev/F1/F1.csproj": {}
+    "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {}
   },
   "projects": {
-    "/Users/luizsimm/Documents/GitHub/ProjetoFinalDevSoftVisual/ProjetoDev/F1/F1.csproj": {
+    "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/luizsimm/Documents/GitHub/ProjetoFinalDevSoftVisual/ProjetoDev/F1/F1.csproj",
+        "projectUniqueName": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
         "projectName": "F1",
-        "projectPath": "/Users/luizsimm/Documents/GitHub/ProjetoFinalDevSoftVisual/ProjetoDev/F1/F1.csproj",
-        "packagesPath": "/Users/luizsimm/.nuget/packages/",
-        "outputPath": "/Users/luizsimm/Documents/GitHub/ProjetoFinalDevSoftVisual/ProjetoDev/F1/obj/",
+        "projectPath": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\F1.csproj",
+        "packagesPath": "C:\\Users\\YujiKiyota\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\YujiKiyota\\OneDrive\\Área de Trabalho\\Faculdade\\Quarto Periodo\\DevSoftwareVisual\\Projeto\\ProjetoFinalDevSoftVisual\\ProjetoDev\\F1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/luizsimm/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\YujiKiyota\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -73,7 +73,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

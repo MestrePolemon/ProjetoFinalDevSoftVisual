@@ -15,6 +15,12 @@ function Listagem() {
                 <Link to="/listar/corrida" className="menu-item">
                     <h2>Listar Corridas</h2>
                 </Link>
+                <Link to="/listar/pista" className="menu-item">
+                    <h2>Listar Pistas</h2>
+                </Link>
+                <Link to="/listar/torneio" className="menu-item">
+                    <h2>Listar Torneios</h2>
+                </Link>
             </div>
         </div>
     );

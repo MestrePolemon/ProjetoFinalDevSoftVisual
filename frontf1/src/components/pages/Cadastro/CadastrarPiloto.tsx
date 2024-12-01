@@ -1,10 +1,6 @@
 ﻿import React, { useState, useEffect } from "react";
-import './EstiloCadastroP.css';
-
-interface Equipe {
-    id: number;
-    nome: string;
-}
+import '../piloto/EstiloCadastroP.css';
+import { Equipe } from "../../../models/Equipe";
 
 function CadastrarPiloto() {
     const [nome, setNome] = useState("");

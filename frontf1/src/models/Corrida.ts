@@ -13,5 +13,5 @@ export interface Corrida{
     segundoID: number;
     segundo: Piloto;
     terceiroID: number;
-    teceiro: Piloto;
+    terceiro: Piloto;
 }

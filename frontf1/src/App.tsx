@@ -4,12 +4,24 @@ import Home from "./components/pages/Home/Home";
 import Cadastro from "./components/pages/Cadastro/Cadastro";
 import Listagem from "./components/pages/Listar/Listar";
 import Alteracao from "./components/pages/Alterar/Alterar";
-import Busca from "./components/pages/Buscar/Busca";
+
 import Delecao from "./components/pages/Deletar/Deletar";
 import ListarPiloto from "./components/pages/Listar/ListarPiloto";
 import ListarEquipe from "./components/pages/Listar/ListarEquipe";
 import ListarCorrida from "./components/pages/Listar/ListarCorrida";
 import "./App.css";
+import CadastrarPiloto from "./components/pages/Cadastro/CadastrarPiloto";
+import CadastrarEquipe from "./components/pages/Cadastro/CadastrarEquipe";
+import CadastrarCorrida from "./components/pages/Cadastro/CadastrarCorrida";
+import AlterarPiloto from "./components/pages/Alterar/AlterarPiloto";
+import AlterarEquipe from "./components/pages/Alterar/AlterarEquipe";
+import AlterarCorrida from "./components/pages/Alterar/AlterarCorrida";
+import DeletarPiloto from "./components/pages/Deletar/DeletarPiloto";
+import DeletarCorrida from "./components/pages/Deletar/DeletarCorrida";
+import DeletarEquipe from "./components/pages/Deletar/DeletarEquipe";
+import ListarPista from "./components/pages/Listar/ListarPista";
+import ListarTorneio from "./components/pages/Listar/ListarTorneio";
+
 
 function App() {
     return (
@@ -26,29 +38,35 @@ function App() {
                         <li className="nav-item">
                             <Link to="/listagem" className="nav-link">Listagem</Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/alteracao" className="nav-link">Alteração</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/busca" className="nav-link">Busca</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/delecao" className="nav-link">Deleção</Link>
-                        </li>
                     </ul>
                 </nav>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/cadastro" element={<Cadastro />} />
                     <Route path="/listagem" element={<Listagem />} />
-                    <Route path="/alteracao" element={<Alteracao />} />
-                    <Route path="/busca" element={<Busca />} />
-                    <Route path="/delecao" element={<Delecao />} />
                     
+
+                    {/* Rotas de Cadastro */}
+                    <Route path="/cadastro/piloto" element={<CadastrarPiloto />} />
+                    <Route path="/cadastro/equipe" element={<CadastrarEquipe />} />
+                    <Route path="/cadastro/corrida" element={<CadastrarCorrida />} />
+
                     {/* Rotas de Listagem */}
                     <Route path="/listar/piloto" element={<ListarPiloto />} />
                     <Route path="/listar/equipe" element={<ListarEquipe />} />
                     <Route path="/listar/corrida" element={<ListarCorrida />} />
+                    <Route path="/listar/pista" element={<ListarPista />} />
+                    <Route path="/listar/torneio" element={<ListarTorneio />} />
+
+                    {/* Rotas de Alteração */}
+                    <Route path="/alterar/piloto/:nome" element={<AlterarPiloto />} />
+                    <Route path="/alterar/equipe/:nome" element={<AlterarEquipe />} />
+                    <Route path="/alterar/corrida/:nome" element={<AlterarCorrida />} />
+
+                    {/* Rotas de Deleção */}
+                    <Route path="/deletar/piloto/:nome" element={<DeletarPiloto />} />
+                    <Route path="/deletar/equipe/:nome" element={<DeletarEquipe />} />
+                    <Route path="/deletar/corrida/:nome" element={<DeletarCorrida />} />
                 </Routes>
             </div>
         </BrowserRouter>

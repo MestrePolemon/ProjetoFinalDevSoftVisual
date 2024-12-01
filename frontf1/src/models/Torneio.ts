@@ -1,4 +1,5 @@
 ﻿import {Piloto} from "./Piloto";
+import {Equipe} from "./Equipe";
 
 export interface Torneio{
     
@@ -8,6 +9,6 @@ export interface Torneio{
     vencedorID: number;
     vencedor: Piloto;
     equipeVencedoraID: number;
-    equipeVencedora: string;
+    equipeVencedora: Equipe;
     
 }

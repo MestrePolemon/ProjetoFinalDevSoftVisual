@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Piloto } from "../../../models/Piloto";
-import './EstiloAlterarP.css';
+import { useParams } from "react-router-dom";
+import { Equipe } from "../../../models/Equipe";
 
 function AlterarPiloto() {
-    const [pilotos, setPilotos] = useState<Piloto[]>([]);
-    const [pilotoSelecionado, setPilotoSelecionado] = useState<number>(0);
-    const [nome, setNome] = useState("");
+    const { nome } = useParams<{ nome: string }>();
+    const [nomePiloto, setNomePiloto] = useState(nome || "");
     const [nacionalidade, setNacionalidade] = useState("");
+    const [equipeId, setEquipeId] = useState(0);
+    const [equipes, setEquipes] = useState<Equipe[]>([]);
     const [mensagem, setMensagem] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('http://localhost:5256/F1/pilotos/listar')
+        fetch('http://localhost:5256/F1/equipes/listar')
             .then(response => response.json())
-            .then(data => setPilotos(data))
+            .then(data => setEquipes(data))
             .catch(error => console.error(error));
     }, []);
 
@@ -20,11 +21,12 @@ function AlterarPiloto() {
         e.preventDefault();
 
         const pilotoAtualizado = {
-            nome,
+            nome: nomePiloto,
             nacionalidade,
+            equipeId,
         };
 
-        fetch(`http://localhost:5256/F1/pilotos/alterar/${pilotoSelecionado}`, {
+        fetch(`http://localhost:5256/F1/pilotos/alterar/${nome}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -44,34 +46,11 @@ function AlterarPiloto() {
             <h1>Alterar Piloto</h1>
             <form onSubmit={alterarPiloto}>
                 <div>
-                    <label>Piloto:</label>
-                    <select
-                        value={pilotoSelecionado}
-                        required
-                        onChange={e => {
-                            const id = Number(e.target.value);
-                            setPilotoSelecionado(id);
-                            const piloto = pilotos.find(p => p.id === id);
-                            if (piloto) {
-                                setNome(piloto.nome);
-                                setNacionalidade(piloto.nacionalidade);
-                            }
-                        }}
-                    >
-                        <option value={0}>Selecione um piloto</option>
-                        {pilotos.map(piloto => (
-                            <option key={piloto.id} value={piloto.id}>
-                                {piloto.nome}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div>
                     <label>Nome:</label>
                     <input
                         type="text"
-                        value={nome}
-                        onChange={e => setNome(e.target.value)}
+                        value={nomePiloto}
+                        onChange={e => setNomePiloto(e.target.value)}
                         required
                     />
                 </div>
@@ -84,6 +63,21 @@ function AlterarPiloto() {
                         required
                     />
                 </div>
+                <div>
+                    <label>Equipe:</label>
+                    <select
+                        value={equipeId}
+                        required
+                        onChange={e => setEquipeId(Number(e.target.value))}
+                    >
+                        <option value={0}>Selecione uma equipe</option>
+                        {equipes.map(equipe => (
+                            <option key={equipe.id} value={equipe.id}>
+                                {equipe.nome}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 <button type="submit">Alterar</button>
             </form>
             {mensagem && <p>{mensagem}</p>}
@@ -91,4 +85,4 @@ function AlterarPiloto() {
     );
 }
 
-export default AlterarPiloto;
+export default AlterarPiloto; 

@@ -76,6 +76,11 @@ app.MapGet("/F1/pilotos/listar", ([FromServices] AppDbContext ctx) =>
 // Busca de equipes e pilotos
 app.MapGet("/F1/equipes/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
+    if (string.IsNullOrWhiteSpace(nome))
+    {
+        return Results.BadRequest("Nome inválido");
+    }
+
     Equipe? equipe = ctx.Equipes.FirstOrDefault(e => e.nome.Contains(nome));
     if (equipe is null)
     {
@@ -86,6 +91,11 @@ app.MapGet("/F1/equipes/buscar/{nome}", ([FromRoute] string nome, [FromServices]
 
 app.MapGet("/F1/pilotos/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
+    if (string.IsNullOrWhiteSpace(nome))
+    {
+        return Results.BadRequest("Nome inválido");
+    }
+
     Piloto? piloto = ctx.Pilotos
         .Include(p => p.equipe)
         .FirstOrDefault(p => p.nome.Contains(nome));
@@ -225,6 +235,11 @@ app.MapGet("/F1/pistas/buscar/{nome}", ([FromRoute] string nome, [FromServices] 
 
 app.MapGet("/F1/corridas/buscar/{nome}", ([FromRoute] string nome, [FromServices] AppDbContext ctx) =>
 {
+    if (string.IsNullOrWhiteSpace(nome))
+    {
+        return Results.BadRequest("Nome inválido");
+    }
+
     Corrida? corrida = ctx.Corridas
         .Include(c => c.pista)
         .FirstOrDefault(c => c.nomeEvento.Contains(nome));

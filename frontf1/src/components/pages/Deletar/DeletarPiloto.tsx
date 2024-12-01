@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import { Piloto } from "../../../models/Piloto";
-import './EstiloDeletarP.css';
+{/*import './EstiloDeletarP.css';*/}
 
 function DeletarPiloto() {
-    const [pilotos, setPilotos] = useState<Piloto[]>([]);
-    const [pilotoSelecionado, setPilotoSelecionado] = useState<number>(0);
+    const { nome } = useParams<{ nome: string }>();
+    const [piloto, setPiloto] = useState<Piloto | null>(null);
     const [mensagem, setMensagem] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('http://localhost:5256/F1/pilotos/listar')
+        fetch(`http://localhost:5256/F1/pilotos/buscar/${nome}`)
             .then(response => response.json())
-            .then(data => setPilotos(data))
+            .then(data => setPiloto(data))
             .catch(error => console.error(error));
-    }, []);
+    }, [nome]);
 
     const deletarPiloto = () => {
-        fetch(`http://localhost:5256/F1/pilotos/deletar/${pilotoSelecionado}`, {
+        fetch(`http://localhost:5256/F1/pilotos/deletar/${nome}`, {
             method: "DELETE",
         })
             .then(response => {
@@ -24,30 +26,26 @@ function DeletarPiloto() {
             })
             .then(() => {
                 setMensagem("Piloto deletado com sucesso!");
-                setPilotos(pilotos.filter(p => p.id !== pilotoSelecionado));
+                navigate("/listar/piloto");
             })
             .catch(error => setMensagem(error.message));
     };
 
+    if (!piloto) {
+        return <p>Carregando...</p>;
+    }
+
     return (
         <div>
             <h1>Deletar Piloto</h1>
+            <p>Tem certeza que deseja deletar o piloto abaixo?</p>
             <div>
-                <label>Piloto:</label>
-                <select
-                    value={pilotoSelecionado}
-                    required
-                    onChange={e => setPilotoSelecionado(Number(e.target.value))}
-                >
-                    <option value={0}>Selecione um piloto</option>
-                    {pilotos.map(piloto => (
-                        <option key={piloto.id} value={piloto.id}>
-                            {piloto.nome}
-                        </option>
-                    ))}
-                </select>
-                <button onClick={deletarPiloto}>Deletar</button>
+                <p><strong>Nome:</strong> {piloto.nome}</p>
+                <p><strong>Nacionalidade:</strong> {piloto.nacionalidade}</p>
+                <p><strong>Equipe:</strong> {piloto.equipe?.nome}</p>
             </div>
+            <button onClick={deletarPiloto}>Sim</button>
+            <button onClick={() => navigate(-1)}>Não</button>
             {mensagem && <p>{mensagem}</p>}
         </div>
     );
