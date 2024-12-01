@@ -18,6 +18,7 @@ import DeletarCorrida from "./components/pages/Deletar/DeletarCorrida";
 import DeletarEquipe from "./components/pages/Deletar/DeletarEquipe";
 import ListarPista from "./components/pages/Listar/ListarPista";
 import ListarTorneio from "./components/pages/Listar/ListarTorneio";
+import DeletarTorneio from "./components/pages/Deletar/DeletarTorneio";
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
                     <Route path="/deletar/piloto/:nome" element={<DeletarPiloto />} />
                     <Route path="/deletar/equipe/:nome" element={<DeletarEquipe />} />
                     <Route path="/deletar/corrida/:nome" element={<DeletarCorrida />} />
+                    <Route path="/deletar/torneio/:ano" element={<DeletarTorneio />} />
                 </Routes>
             </div>
         </BrowserRouter>

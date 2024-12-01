@@ -24,13 +24,13 @@ function ListarCorrida() {
         corrida.nomeEvento.toLowerCase().includes(nomeBusca.toLowerCase())
     );
 
-    const deletarCorrida = (nome: string) => {
+    const deletarCorrida = (nome: string, id: number) => {
         fetch(`http://localhost:5256/F1/corridas/deletar/${nome}`, {
             method: "DELETE",
         })
             .then(response => {
                 if (!response.ok) throw new Error("Erro ao deletar corrida");
-                setCorridas(corridas.filter(corrida => corrida.nomeEvento !== nome));
+                setCorridas(corridas.filter(corrida => corrida.id !== id));
             })
             .catch(error => setErro(error.message));
     };
@@ -41,37 +41,40 @@ function ListarCorrida() {
             {erro && <p>{erro}</p>}
             <table>
                 <thead>
-                <tr>
-                    <th>Nome do Evento</th>
-                    <th>Voltas</th>
-                    <th>Data do Evento</th>
-                    <th>Pista</th>
-                    <th>Vencedor</th>
-                    <th>Segundo</th>
-                    <th>Terceiro</th>
-                    <th>Ações</th>
-                </tr>
+                    <tr>
+                        <th>Nome do Evento</th>
+                        <th>Voltas</th>
+                        <th>Data do Evento</th>
+                        <th>Pista</th>
+                        <th>Vencedor</th>
+                        <th>Segundo</th>
+                        <th>Terceiro</th>
+                        <th>Ações</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {corridasFiltradas.map((corrida, index) => (
-                    <tr key={index}>
-                        <td>{corrida.nomeEvento}</td>
-                        <td>{corrida.voltas}</td>
-                        <td>{new Date(corrida.dataEvento).toLocaleDateString()}</td>
-                        <td>{corrida.pista.nome}</td>
-                        <td>{corrida.vencedor.nome}</td>
-                        <td>{corrida.segundo.nome}</td>
-                        <td>{corrida.terceiro.nome}</td>
-                        <td>
-                            <button onClick={() => navigate(`/alterar/corrida/${corrida.nomeEvento}`)}>
-                                Alterar
-                            </button>
-                            <button className="button-delete" onClick={() => deletarCorrida(corrida.nomeEvento)}>
-                                Deletar
-                            </button>
-                        </td>
-                    </tr>
-                ))}
+                    {corridasFiltradas.map((corrida) => (
+                        <tr key={corrida.id}>
+                            <td>{corrida.nomeEvento}</td>
+                            <td>{corrida.voltas}</td>
+                            <td>{new Date(corrida.dataEvento).toLocaleDateString()}</td>
+                            <td>{corrida.pista.nome}</td>
+                            <td>{corrida.vencedor.nome}</td>
+                            <td>{corrida.segundo.nome}</td>
+                            <td>{corrida.terceiro.nome}</td>
+                            <td>
+                                <button onClick={() => navigate(`/alterar/corrida/${corrida.nomeEvento}`)}>
+                                    Alterar
+                                </button>
+                                <button 
+                                    className="button-delete" 
+                                    onClick={() => deletarCorrida(corrida.nomeEvento, corrida.id)}
+                                >
+                                    Deletar
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 

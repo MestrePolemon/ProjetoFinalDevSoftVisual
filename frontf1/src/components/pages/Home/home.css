@@ -1,4 +1,4 @@
-:root {
+    :root {
     --ferrari-red: #F1C30F;
     --black: #000000;
     --white: #ffffff;
@@ -135,4 +135,104 @@ table tr:nth-child(even) td {
     table {
         font-size: 12px;
     }
+}
+
+.race-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background-color: var(--ferrari-red);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.race-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    background-color: #d40000;
+}
+
+.race-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.pistas-info {
+    text-align: center;
+    color: var(--ferrari-red);
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--gray-light);
+    border-radius: 5px;
+    border: 1px solid var(--ferrari-red);
+}
+
+.standings-info {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: var(--white);
+    border: 2px solid var(--ferrari-red);
+    border-radius: 5px;
+}
+
+.standings-info h4 {
+    color: var(--ferrari-red);
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.standings-info p {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: var(--gray-light);
+    border-radius: 3px;
+}
+
+.data-atual {
+    text-align: center;
+    color: var(--ferrari-red);
+    font-weight: bold;
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.reset-button {
+    margin: 10px;
+    padding: 8px 16px;
+    background-color: #666;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.reset-button:hover {
+    background-color: #888;
 }
