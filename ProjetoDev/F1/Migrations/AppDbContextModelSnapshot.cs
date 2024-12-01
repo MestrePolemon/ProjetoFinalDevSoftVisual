@@ -35,13 +35,13 @@ namespace F1.Migrations
                     b.Property<int?>("pistaId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("segundoID")
+                    b.Property<int?>("segundoID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("terceiroID")
+                    b.Property<int?>("terceiroID")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("vencedorID")
+                    b.Property<int?>("vencedorID")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("voltas")
@@ -172,21 +172,15 @@ namespace F1.Migrations
 
                     b.HasOne("F1.Models.Piloto", "segundo")
                         .WithMany()
-                        .HasForeignKey("segundoID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("segundoID");
 
                     b.HasOne("F1.Models.Piloto", "terceiro")
                         .WithMany()
-                        .HasForeignKey("terceiroID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("terceiroID");
 
                     b.HasOne("F1.Models.Piloto", "vencedor")
                         .WithMany()
-                        .HasForeignKey("vencedorID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("vencedorID");
 
                     b.Navigation("pista");
 

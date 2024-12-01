@@ -1,5 +1,5 @@
 :root {
-    --ferrari-red: #F1C30F; /* Cor base da Ferrari */
+    --ferrari-red: #F1C30F;
     --black: #000000;
     --white: #ffffff;
     --gray-light: #f4f4f4;
@@ -8,7 +8,6 @@
     --blue: #1E90FF;
 }
 
-/* Estilos gerais */
 body {
     font-family: 'Arial', sans-serif;
     background-color: var(--gray-light);
@@ -30,14 +29,12 @@ h3 {
     margin: 20px 0;
 }
 
-/* Estilo do container principal */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Estilo do select de piloto */
 select {
     width: 100%;
     padding: 10px;
@@ -54,7 +51,6 @@ select:focus {
     border-color: var(--blue);
 }
 
-/* Estilo do botão "Correr" */
 button {
     padding: 10px 20px;
     background-color: var(--ferrari-red);
@@ -67,7 +63,7 @@ button {
 }
 
 button:hover {
-    transform: translateY(-5px); /* Efeito de subida no hover */
+    transform: translateY(-5px);
     background-color: var(--red-dark);
 }
 
@@ -75,7 +71,6 @@ button:focus {
     outline: none;
 }
 
-/* Tabela de resultados */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -105,29 +100,6 @@ table tr:nth-child(even) td {
     color: var(--white);
 }
 
-/* Estilo das mensagens de sucesso e erro */
-p {
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-p.sucesso {
-    background-color: var(--ferrari-red);
-    color: var(--white);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-p.erro {
-    background-color: var(--red-dark);
-    color: var(--white);
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Responsividade */
 @media (max-width: 768px) {
     .container {
         padding: 10px;

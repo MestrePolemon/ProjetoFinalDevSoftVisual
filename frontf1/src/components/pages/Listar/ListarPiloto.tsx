@@ -18,25 +18,25 @@ function ListarPiloto() {
     }, []);
 
     return (
-        <div>
-            <h1>Lista de Pilotos</h1>
-            {erro && <p>{erro}</p>}
-            <table border={1}>
+        <div className="table-container">
+            <h1 className="menu-title">Lista de Pilotos</h1>
+            {erro && <p className="error-message">{erro}</p>}
+            <table>
                 <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Nacionalidade</th>
-                    <th>Equipe</th>
-                </tr>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Nacionalidade</th>
+                        <th>Equipe</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {pilotos.map((piloto, index) => (
-                    <tr key={index}>
-                        <td>{piloto.nome}</td>
-                        <td>{piloto.nacionalidade}</td>
-                        <td>{piloto.equipe?.nome}</td>
-                    </tr>
-                ))}
+                    {pilotos.map((piloto, index) => (
+                        <tr key={index}>
+                            <td>{piloto.nome}</td>
+                            <td>{piloto.nacionalidade}</td>
+                            <td>{piloto.equipe?.nome}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

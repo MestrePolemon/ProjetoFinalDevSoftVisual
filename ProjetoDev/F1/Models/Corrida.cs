@@ -8,11 +8,11 @@ public class Corrida
     public DateOnly dataEvento { get; set; }
     public int? pistaId { get; set; }
     public Pista? pista { get; set; }
-    public int vencedorID { get; set; }
+    public int? vencedorID { get; set; }
     public Piloto? vencedor { get; set; }
-    public int segundoID { get; set; }
+    public int? segundoID { get; set; }
     public Piloto? segundo { get; set; }
-    public int terceiroID { get; set; }
+    public int? terceiroID { get; set; }
     public Piloto? terceiro { get; set; }
     public DateTime criadoEm { get; set; } = DateTime.Now;
 }

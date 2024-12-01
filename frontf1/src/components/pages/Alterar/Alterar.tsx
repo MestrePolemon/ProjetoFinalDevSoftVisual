@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 
 function Alteracao() {
     return (
-        <div>
-            <h1>Alterações</h1>
-            <Link to="/alterar/piloto">Alterar Piloto</Link>
-            <Link to="/alterar/equipe">Alterar Equipe</Link>
-            <Link to="/alterar/corrida">Alterar Corrida</Link>
+        <div className="menu-container">
+            <h1 className="menu-title">Alterações</h1>
+            <div className="menu-grid">
+                <Link to="/alterar/piloto" className="menu-item">
+                    <h2>Alterar Piloto</h2>
+                </Link>
+                <Link to="/alterar/equipe" className="menu-item">
+                    <h2>Alterar Equipe</h2>
+                </Link>
+                <Link to="/alterar/corrida" className="menu-item">
+                    <h2>Alterar Corrida</h2>
+                </Link>
+            </div>
         </div>
     );
 }

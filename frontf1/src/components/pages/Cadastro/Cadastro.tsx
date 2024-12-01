@@ -3,11 +3,19 @@ import { Link } from "react-router-dom";
 
 function Cadastro() {
     return (
-        <div>
-            <h1>Cadastros</h1>
-            <Link to="/cadastro/piloto">Cadastrar Piloto</Link>
-            <Link to="/cadastro/equipe">Cadastrar Equipe</Link>
-            <Link to="/cadastro/corrida">Cadastrar Corrida</Link>
+        <div className="menu-container">
+            <h1 className="menu-title">Cadastros</h1>
+            <div className="menu-grid">
+                <Link to="/cadastro/piloto" className="menu-item">
+                    <h2>Cadastrar Piloto</h2>
+                </Link>
+                <Link to="/cadastro/equipe" className="menu-item">
+                    <h2>Cadastrar Equipe</h2>
+                </Link>
+                <Link to="/cadastro/corrida" className="menu-item">
+                    <h2>Cadastrar Corrida</h2>
+                </Link>
+            </div>
         </div>
     );
 }

@@ -191,7 +191,7 @@ app.MapGet("/F1/pistas/listar", ([FromServices] AppDbContext ctx) =>
 {
     if (ctx.Pistas.Any())
     {
-        return Results.Ok(ctx.Pistas.ToList());
+        return Results.Ok(ctx.Pistas.ToList()); 
     }
     return Results.NotFound("Não foram encontrados cadastros de pistas");
 });
@@ -200,7 +200,12 @@ app.MapGet("/F1/corridas/listar", ([FromServices] AppDbContext ctx) =>
 {
     if (ctx.Corridas.Any())
     {
-        var corridas = ctx.Corridas.Include(c => c.pista).ToList();
+        var corridas = ctx.Corridas
+            .Include(c => c.pista)
+            .Include(c => c.vencedor)
+            .Include(c => c.segundo)
+            .Include(c => c.terceiro)
+            .ToList();
         return Results.Ok(corridas);
     }
     return Results.NotFound("Não foram encontrados cadastros de corridas");

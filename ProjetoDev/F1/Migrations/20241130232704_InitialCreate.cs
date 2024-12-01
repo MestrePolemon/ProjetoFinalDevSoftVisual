@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace F1.Migrations
 {
     /// <inheritdoc />
-    public partial class adicaoNovasTabelas : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Equipes",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
+                    paisOrigem = table.Column<string>(type: "TEXT", nullable: true),
+                    dataFundacao = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    criadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Equipes", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Pistas",
                 columns: table => new
@@ -26,6 +42,67 @@ namespace F1.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Pistas", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Pilotos",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    nome = table.Column<string>(type: "TEXT", nullable: true),
+                    nacionalidade = table.Column<string>(type: "TEXT", nullable: true),
+                    criadoEm = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    equipeId = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pilotos", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Pilotos_Equipes_equipeId",
+                        column: x => x.equipeId,
+                        principalTable: "Equipes",
+                        principalColumn: "id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Corridas",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    nomeEvento = table.Column<string>(type: "TEXT", nullable: true),
+                    voltas = table.Column<int>(type: "INTEGER", nullable: false),
+                    dataEvento = table.Column<DateOnly>(type: "TEXT", nullable: false),
+                    pistaId = table.Column<int>(type: "INTEGER", nullable: true),
+                    vencedorID = table.Column<int>(type: "INTEGER", nullable: true),
+                    segundoID = table.Column<int>(type: "INTEGER", nullable: true),
+                    terceiroID = table.Column<int>(type: "INTEGER", nullable: true),
+                    criadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Corridas", x => x.id);
+                    table.ForeignKey(
+                        name: "FK_Corridas_Pilotos_segundoID",
+                        column: x => x.segundoID,
+                        principalTable: "Pilotos",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_Corridas_Pilotos_terceiroID",
+                        column: x => x.terceiroID,
+                        principalTable: "Pilotos",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_Corridas_Pilotos_vencedorID",
+                        column: x => x.vencedorID,
+                        principalTable: "Pilotos",
+                        principalColumn: "id");
+                    table.ForeignKey(
+                        name: "FK_Corridas_Pistas_pistaId",
+                        column: x => x.pistaId,
+                        principalTable: "Pistas",
+                        principalColumn: "id");
                 });
 
             migrationBuilder.CreateTable(
@@ -57,49 +134,6 @@ namespace F1.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Corridas",
-                columns: table => new
-                {
-                    id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    nomeEvento = table.Column<string>(type: "TEXT", nullable: true),
-                    voltas = table.Column<int>(type: "INTEGER", nullable: false),
-                    dataEvento = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    pistaId = table.Column<int>(type: "INTEGER", nullable: true),
-                    vencedorID = table.Column<int>(type: "INTEGER", nullable: false),
-                    segundoID = table.Column<int>(type: "INTEGER", nullable: false),
-                    terceiroID = table.Column<int>(type: "INTEGER", nullable: false),
-                    criadoEm = table.Column<DateTime>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Corridas", x => x.id);
-                    table.ForeignKey(
-                        name: "FK_Corridas_Pilotos_segundoID",
-                        column: x => x.segundoID,
-                        principalTable: "Pilotos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Corridas_Pilotos_terceiroID",
-                        column: x => x.terceiroID,
-                        principalTable: "Pilotos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Corridas_Pilotos_vencedorID",
-                        column: x => x.vencedorID,
-                        principalTable: "Pilotos",
-                        principalColumn: "id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Corridas_Pistas_pistaId",
-                        column: x => x.pistaId,
-                        principalTable: "Pistas",
-                        principalColumn: "id");
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Corridas_pistaId",
                 table: "Corridas",
@@ -119,6 +153,11 @@ namespace F1.Migrations
                 name: "IX_Corridas_vencedorID",
                 table: "Corridas",
                 column: "vencedorID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Pilotos_equipeId",
+                table: "Pilotos",
+                column: "equipeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Torneios_EquipeVencedoraID",
@@ -142,6 +181,12 @@ namespace F1.Migrations
 
             migrationBuilder.DropTable(
                 name: "Pistas");
+
+            migrationBuilder.DropTable(
+                name: "Pilotos");
+
+            migrationBuilder.DropTable(
+                name: "Equipes");
         }
     }
 }

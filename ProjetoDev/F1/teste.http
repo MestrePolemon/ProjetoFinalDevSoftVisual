@@ -103,3 +103,107 @@ DELETE {{base_url}}/equipes/deletar/RedBull
 
 ### deletar piloto pelo nome
 DELETE {{base_url}}/pilotos/deletar/Hamilton
+
+### Cadastrar pistas
+POST {{base_url}}/pistas/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Circuito de Interlagos",
+    "pais": "Brasil",
+    "distancia": 4.309,
+    "dataFundacao": "1940-05-12"
+}
+
+###
+POST {{base_url}}/pistas/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Circuito de Monaco",
+    "pais": "Monaco",
+    "distancia": 3.337,
+    "dataFundacao": "1929-04-14"
+}
+
+###
+POST {{base_url}}/pistas/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Circuito de Silverstone",
+    "pais": "Inglaterra",
+    "distancia": 5.891,
+    "dataFundacao": "1948-10-02"
+}
+
+###
+POST {{base_url}}/pistas/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Circuito de Monza",
+    "pais": "Itália",
+    "distancia": 5.793,
+    "dataFundacao": "1922-09-03"
+}
+
+###
+POST {{base_url}}/pistas/cadastrar
+Content-Type: application/json
+
+{
+    "nome": "Circuito de Spa-Francorchamps",
+    "pais": "Bélgica",
+    "distancia": 7.004,
+    "dataFundacao": "1921-08-12"
+}
+
+### Listar pistas cadastradas
+GET {{base_url}}/pistas/listar
+
+
+### Cadastrar corrida
+POST {{base_url}}/corridas/cadastrar
+Content-Type: application/json
+
+{
+    "nomeEvento": "Grande Prêmio de São Paulo",
+    "voltas": 71,
+    "dataEvento": "2023-11-05",
+    "pistaId": 1,
+    "vencedorID": 1,
+    "segundoID": 2,
+    "terceiroID": 3
+}
+
+###
+POST {{base_url}}/corridas/cadastrar
+Content-Type: application/json
+
+{
+    "nomeEvento": "Grande Prêmio de Monaco",
+    "voltas": 78,
+    "dataEvento": "2023-05-28",
+    "pistaId": 2,
+    "vencedorID": 1,
+    "segundoID": 3,
+    "terceiroID": 2
+}
+
+###
+POST {{base_url}}/corridas/cadastrar
+Content-Type: application/json
+
+{
+    "nomeEvento": "Grande Prêmio da Grã-Bretanha",
+    "voltas": 52,
+    "dataEvento": "2023-07-09",
+    "pistaId": 3,
+    "vencedorID": 1,
+    "segundoID": 2,
+    "terceiroID": 3
+}
+### Listar corridas cadastradas
+GET {{base_url}}/corridas/listar
+

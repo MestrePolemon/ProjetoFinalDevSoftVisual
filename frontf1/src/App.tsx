@@ -6,31 +6,34 @@ import Listagem from "./components/pages/Listar/Listar";
 import Alteracao from "./components/pages/Alterar/Alterar";
 import Busca from "./components/pages/Buscar/Busca";
 import Delecao from "./components/pages/Deletar/Deletar";
+import ListarPiloto from "./components/pages/Listar/ListarPiloto";
+import ListarEquipe from "./components/pages/Listar/ListarEquipe";
+import ListarCorrida from "./components/pages/Listar/ListarCorrida";
 import "./App.css";
 
 function App() {
     return (
         <BrowserRouter>
-            <div id="app">
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
+            <div className="app-container">
+                <nav className="nav-container">
+                    <ul className="nav-list">
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
-                        <li>
-                            <Link to="/cadastro">Cadastros</Link>
+                        <li className="nav-item">
+                            <Link to="/cadastro" className="nav-link">Cadastros</Link>
                         </li>
-                        <li>
-                            <Link to="/listagem">Listagem</Link>
+                        <li className="nav-item">
+                            <Link to="/listagem" className="nav-link">Listagem</Link>
                         </li>
-                        <li>
-                            <Link to="/alteracao">Alteração</Link>
+                        <li className="nav-item">
+                            <Link to="/alteracao" className="nav-link">Alteração</Link>
                         </li>
-                        <li>
-                            <Link to="/busca">Busca</Link>
+                        <li className="nav-item">
+                            <Link to="/busca" className="nav-link">Busca</Link>
                         </li>
-                        <li>
-                            <Link to="/delecao">Deleção</Link>
+                        <li className="nav-item">
+                            <Link to="/delecao" className="nav-link">Deleção</Link>
                         </li>
                     </ul>
                 </nav>
@@ -41,6 +44,11 @@ function App() {
                     <Route path="/alteracao" element={<Alteracao />} />
                     <Route path="/busca" element={<Busca />} />
                     <Route path="/delecao" element={<Delecao />} />
+                    
+                    {/* Rotas de Listagem */}
+                    <Route path="/listar/piloto" element={<ListarPiloto />} />
+                    <Route path="/listar/equipe" element={<ListarEquipe />} />
+                    <Route path="/listar/corrida" element={<ListarCorrida />} />
                 </Routes>
             </div>
         </BrowserRouter>
