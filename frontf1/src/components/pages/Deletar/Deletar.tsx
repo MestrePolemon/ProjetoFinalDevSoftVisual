@@ -7,7 +7,6 @@ function Delecao() {
             <h1>Deleção</h1>
             <Link to="/deletar/piloto">Deletar Piloto</Link>
             <Link to="/deletar/equipe">Deletar Equipe</Link>
-            <Link to="/deletar/corrida">Deletar Corrida</Link>
         </div>
     );
 }

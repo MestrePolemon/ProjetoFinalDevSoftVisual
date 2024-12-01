@@ -12,9 +12,6 @@ function Alteracao() {
                 <Link to="/alterar/equipe" className="menu-item">
                     <h2>Alterar Equipe</h2>
                 </Link>
-                <Link to="/alterar/corrida" className="menu-item">
-                    <h2>Alterar Corrida</h2>
-                </Link>
             </div>
         </div>
     );

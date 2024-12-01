@@ -9,17 +9,12 @@ import ListarCorrida from "./components/pages/Listar/ListarCorrida";
 import "./App.css";
 import CadastrarPiloto from "./components/pages/Cadastro/CadastrarPiloto";
 import CadastrarEquipe from "./components/pages/Cadastro/CadastrarEquipe";
-import CadastrarCorrida from "./components/pages/Cadastro/CadastrarCorrida";
 import AlterarPiloto from "./components/pages/Alterar/AlterarPiloto";
 import AlterarEquipe from "./components/pages/Alterar/AlterarEquipe";
-import AlterarCorrida from "./components/pages/Alterar/AlterarCorrida";
 import DeletarPiloto from "./components/pages/Deletar/DeletarPiloto";
-import DeletarCorrida from "./components/pages/Deletar/DeletarCorrida";
 import DeletarEquipe from "./components/pages/Deletar/DeletarEquipe";
 import ListarPista from "./components/pages/Listar/ListarPista";
 import ListarTorneio from "./components/pages/Listar/ListarTorneio";
-import DeletarTorneio from "./components/pages/Deletar/DeletarTorneio";
-
 
 function App() {
     return (
@@ -47,8 +42,6 @@ function App() {
                     {/* Rotas de Cadastro */}
                     <Route path="/cadastro/piloto" element={<CadastrarPiloto />} />
                     <Route path="/cadastro/equipe" element={<CadastrarEquipe />} />
-                    <Route path="/cadastro/corrida" element={<CadastrarCorrida />} />
-
                     {/* Rotas de Listagem */}
                     <Route path="/listar/piloto" element={<ListarPiloto />} />
                     <Route path="/listar/equipe" element={<ListarEquipe />} />
@@ -59,13 +52,11 @@ function App() {
                     {/* Rotas de Alteração */}
                     <Route path="/alterar/piloto/:nome" element={<AlterarPiloto />} />
                     <Route path="/alterar/equipe/:nome" element={<AlterarEquipe />} />
-                    <Route path="/alterar/corrida/:nome" element={<AlterarCorrida />} />
 
                     {/* Rotas de Deleção */}
                     <Route path="/deletar/piloto/:nome" element={<DeletarPiloto />} />
                     <Route path="/deletar/equipe/:nome" element={<DeletarEquipe />} />
-                    <Route path="/deletar/corrida/:nome" element={<DeletarCorrida />} />
-                    <Route path="/deletar/torneio/:ano" element={<DeletarTorneio />} />
+                    
                 </Routes>
             </div>
         </BrowserRouter>

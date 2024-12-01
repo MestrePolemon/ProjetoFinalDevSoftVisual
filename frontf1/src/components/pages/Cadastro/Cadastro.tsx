@@ -12,9 +12,6 @@ function Cadastro() {
                 <Link to="/cadastro/equipe" className="menu-item">
                     <h2>Cadastrar Equipe</h2>
                 </Link>
-                <Link to="/cadastro/corrida" className="menu-item">
-                    <h2>Cadastrar Corrida</h2>
-                </Link>
             </div>
         </div>
     );
